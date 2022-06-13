@@ -17,7 +17,7 @@ function todoMain(){
   }
 
   function addListeners(){
-    button.addEventListener("click", addEntry);
+    button.addEventListener("click", addEntry, false);
   }
 
   function addEntry(event){
@@ -37,17 +37,16 @@ function todoMain(){
    
     let checkboxElem = document.createElement("input");
     checkboxElem.type = "checkbox";
-    checkboxElem.addEventListener("click", done);
+    checkboxElem.addEventListener("click", done, false);
     let tdElem1 = document.createElement("td");
     tdElem1.appendChild(checkboxElem);
     trElem.appendChild(tdElem1);
-
 
     let tdElem2 = document.createElement("td");
     tdElem2.innerText = inputValue;
     trElem.appendChild(tdElem2);
 
-  
+
     let tdElem3 = document.createElement("td");
     tdElem3.innerText = inputValue2;
     trElem.appendChild(tdElem3);
@@ -55,14 +54,17 @@ function todoMain(){
 
     let spanElem = document.createElement("span");
     spanElem.innerText = "delete";
-    spanElem.addEventListener("click", deleteItem);
+    spanElem.addEventListener("click", deleteItem, false);
     let tdElem4 = document.createElement("td");
     tdElem4.appendChild(spanElem);
     trElem.appendChild(tdElem4);
-
+  
+    
     function deleteItem(){
       trElem.remove();
     }
 
+    function done(){
+     }
   }
 }
